@@ -1,0 +1,70 @@
+---
+const {
+  title = "Chris Mackintosh — Product Designer",
+  description = "Portfolio & writing",
+} = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/Inter-VariableFont_opsz,wght.ttf"
+      type="font/ttf"
+      crossorigin
+    />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-surface text-text px-3 py-2 rounded-md shadow-[var(--shadow-soft)]"
+      >Skip to content</a
+    >
+    <header
+      class="container mx-auto flex items-center justify-between py-6 px-4"
+    >
+      <a href="/" class="text-lg font-semibold hover:opacity-80 transition"
+        >CM</a
+      >
+      <button
+        id="theme-toggle"
+        class="rounded-lg px-3 py-2 text-sm bg-surface-strong hover:shadow-[var(--shadow-soft)] transition"
+        aria-label="Toggle dark mode">Toggle</button
+      >
+    </header>
+    <main id="main" class="container mx-auto px-4 pb-24">
+      <slot />
+    </main>
+    <footer
+      class="container mx-auto px-4 border-t border-surface-strong/60 py-10 text-sm text-text-mute"
+    >
+      © {new Date().getFullYear()} Chris Mackintosh
+    </footer>
+
+    <script>
+      // Minimal theme toggle
+      const root = document.documentElement;
+      const key = "theme";
+      const stored = localStorage.getItem(key);
+      const preferDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      if (stored === "dark" || (!stored && preferDark))
+        root.classList.add("dark");
+      document.getElementById("theme-toggle")?.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        localStorage.setItem(
+          key,
+          root.classList.contains("dark") ? "dark" : "light"
+        );
+      });
+    </script>
+  </body>
+</html>
