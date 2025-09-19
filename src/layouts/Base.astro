@@ -1,6 +1,9 @@
 ---
 const { title = "Chris Mackintosh — Product Designer", description = "Portfolio & writing" } =
   Astro.props;
+
+import "../styles/global.css";
+import interVarUrl from "../assets/fonts/Inter-VariableFont_opsz,wght.ttf?url";
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -10,14 +13,7 @@ const { title = "Chris Mackintosh — Product Designer", description = "Portfoli
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/Inter-VariableFont_opsz,wght.ttf"
-      type="font/ttf"
-      crossorigin
-    />
+    <link rel="preload" as="font" href={interVarUrl} type="font/ttf" crossorigin />
   </head>
   <body>
     <a
