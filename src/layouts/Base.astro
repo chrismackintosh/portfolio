@@ -12,7 +12,7 @@ import interVarUrl from "../assets/fonts/Inter-VariableFont_opsz,wght.ttf?url";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
     <link rel="preload" as="font" href={interVarUrl} type="font/ttf" crossorigin />
   </head>
   <body>
@@ -22,7 +22,11 @@ import interVarUrl from "../assets/fonts/Inter-VariableFont_opsz,wght.ttf?url";
       >Skip to content</a
     >
     <header class="container mx-auto flex items-center justify-between px-4 py-6">
-      <a href="/" class="text-lg font-semibold transition hover:opacity-80">CM</a>
+      <a
+        href={`${import.meta.env.BASE_URL}/`}
+        class="text-lg font-semibold transition hover:opacity-80"
+        >CM</a
+      >
       <button
         id="theme-toggle"
         class="bg-surface-strong rounded-lg px-3 py-2 text-sm transition hover:shadow-[var(--shadow-soft)]"

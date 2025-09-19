@@ -88,11 +88,3 @@ body {
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-brand) 35%, transparent);
   border-radius: 10px;
 }
-
-/* Optional: ambient grain overlay utility */
-.bg-grain {
-  background-image: url("/textures/grain.png");
-  background-size: 256px 256px;
-  opacity: 0.08;
-  pointer-events: none;
-}

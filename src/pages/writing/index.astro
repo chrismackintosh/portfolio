@@ -10,7 +10,7 @@ const posts = await getCollection("posts");
     {
       posts.map((p) => (
         <li>
-          <a href={`/writing/${p.slug}/`} class="block hover:opacity-80">
+          <a href={`${import.meta.env.BASE_URL}/writing/${p.slug}/`} class="block hover:opacity-80">
             <h2 class="text-2xl font-semibold">{p.data.title}</h2>
             {p.data.description && <p class="text-text-mute">{p.data.description}</p>}
           </a>
