@@ -2,90 +2,97 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @font-face {
-    font-family: "Inter var";
-    src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Inter var";
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 /* --- Design tokens (Tailwind v4 @theme) --- */
 @theme {
-    --font-sans: "Inter var", Inter, ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-sans:
+    "Inter var", Inter, ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
 
-    /* Colors */
-    --color-brand: #2B6BE4;
-    --color-brand-50: #EFF5FF;
-    --color-brand-100: #DBE8FF;
-    --color-brand-500: #2B6BE4;
-    --color-brand-700: #183F8B;
+  /* Colors */
+  --color-brand: #2b6be4;
+  --color-brand-50: #eff5ff;
+  --color-brand-100: #dbe8ff;
+  --color-brand-500: #2b6be4;
+  --color-brand-700: #183f8b;
 
-    --color-surface: #ffffff;
-    --color-surface-soft: #f7f7f8;
-    --color-surface-strong: #eaeaee;
-    --color-surface-invert: #0b0c10;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f7f7f8;
+  --color-surface-strong: #eaeaee;
+  --color-surface-invert: #0b0c10;
 
-    --color-text: #0b0c10;
-    --color-text-mute: #5d6066;
-    --color-text-invert: #ffffff;
+  --color-text: #0b0c10;
+  --color-text-mute: #5d6066;
+  --color-text-invert: #ffffff;
 
-    --color-accent: #FFB703;
-    --color-success: #12B886;
-    --color-warn: #F59E0B;
-    --color-danger: #EF4444;
+  --color-accent: #ffb703;
+  --color-success: #12b886;
+  --color-warn: #f59e0b;
+  --color-danger: #ef4444;
 
-    /* Radii */
-    --radius-xl: 1rem;
-    --radius-2xl: 1.25rem;
-    --radius-3xl: 1.75rem;
+  /* Radii */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
 
-    /* Shadows */
-    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.08);
-    --shadow-lift: 0 6px 20px rgba(0, 0, 0, 0.12);
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lift: 0 6px 20px rgba(0, 0, 0, 0.12);
 
-    /* Timing */
-    --ease-in-out-soft: cubic-bezier(0.2, 0.0, 0.2, 1);
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Timing */
+  --ease-in-out-soft: cubic-bezier(0.2, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Base */
 :root {
-    color-scheme: light dark;
+  color-scheme: light dark;
+}
+
+html,
+body {
+  font-optical-sizing: auto;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-sans);
-    @apply bg-surface text-text antialiased;
+  font-family: var(--font-sans);
+  @apply bg-surface text-text antialiased;
 }
 
 /* Dark mode (toggle via .dark on <html>) */
 .dark body {
-    @apply bg-surface-invert text-text-invert;
+  @apply bg-surface-invert text-text-invert;
 }
 
 /* Prose */
 .prose {
-    @apply prose-neutral max-w-none;
+  @apply prose-neutral max-w-none;
 }
 
 .dark .prose {
-    @apply prose-invert;
+  @apply prose-invert;
 }
 
 /* Focus ring */
 :where(a, button, [role="button"], input, textarea, select):focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-brand) 35%, transparent);
-    border-radius: 10px;
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-brand) 35%, transparent);
+  border-radius: 10px;
 }
 
 /* Optional: ambient grain overlay utility */
 .bg-grain {
-    background-image: url('/textures/grain.png');
-    background-size: 256px 256px;
-    opacity: 0.08;
-    pointer-events: none;
+  background-image: url("/textures/grain.png");
+  background-size: 256px 256px;
+  opacity: 0.08;
+  pointer-events: none;
 }

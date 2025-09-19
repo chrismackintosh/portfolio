@@ -1,8 +1,6 @@
 ---
-const {
-  title = "Chris Mackintosh — Product Designer",
-  description = "Portfolio & writing",
-} = Astro.props;
+const { title = "Chris Mackintosh — Product Designer", description = "Portfolio & writing" } =
+  Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -24,18 +22,14 @@ const {
   <body>
     <a
       href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-surface text-text px-3 py-2 rounded-md shadow-[var(--shadow-soft)]"
+      class="bg-surface text-text sr-only rounded-md px-3 py-2 shadow-[var(--shadow-soft)] focus:not-sr-only focus:absolute focus:top-4 focus:left-4"
       >Skip to content</a
     >
-    <header
-      class="container mx-auto flex items-center justify-between py-6 px-4"
-    >
-      <a href="/" class="text-lg font-semibold hover:opacity-80 transition"
-        >CM</a
-      >
+    <header class="container mx-auto flex items-center justify-between px-4 py-6">
+      <a href="/" class="text-lg font-semibold transition hover:opacity-80">CM</a>
       <button
         id="theme-toggle"
-        class="rounded-lg px-3 py-2 text-sm bg-surface-strong hover:shadow-[var(--shadow-soft)] transition"
+        class="bg-surface-strong rounded-lg px-3 py-2 text-sm transition hover:shadow-[var(--shadow-soft)]"
         aria-label="Toggle dark mode">Toggle</button
       >
     </header>
@@ -43,7 +37,7 @@ const {
       <slot />
     </main>
     <footer
-      class="container mx-auto px-4 border-t border-surface-strong/60 py-10 text-sm text-text-mute"
+      class="border-surface-strong/60 text-text-mute container mx-auto border-t px-4 py-10 text-sm"
     >
       © {new Date().getFullYear()} Chris Mackintosh
     </footer>
@@ -53,17 +47,11 @@ const {
       const root = document.documentElement;
       const key = "theme";
       const stored = localStorage.getItem(key);
-      const preferDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      if (stored === "dark" || (!stored && preferDark))
-        root.classList.add("dark");
+      const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (stored === "dark" || (!stored && preferDark)) root.classList.add("dark");
       document.getElementById("theme-toggle")?.addEventListener("click", () => {
         root.classList.toggle("dark");
-        localStorage.setItem(
-          key,
-          root.classList.contains("dark") ? "dark" : "light"
-        );
+        localStorage.setItem(key, root.classList.contains("dark") ? "dark" : "light");
       });
     </script>
   </body>

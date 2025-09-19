@@ -1,0 +1,20 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getEntry } from "astro:content";
+
+const slug = Astro.params.slug;
+if (!slug) throw new Error("Missing slug param for work page.");
+
+const entry = await getEntry("work", slug);
+if (!entry) throw new Error(`Work entry not found: ${slug}`);
+
+const { Content } = await entry.render();
+---
+
+<Base title={entry.data.title}>
+  <article class="prose lg:prose-lg">
+    <h1 class="mb-0">{entry.data.title}</h1>
+    {entry.data.subtitle && <p class="text-text-mute mt-1">{entry.data.subtitle}</p>}
+    <Content />
+  </article>
+</Base>
