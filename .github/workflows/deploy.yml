@@ -26,8 +26,10 @@ jobs:
           cache: npm
       - name: Install deps
         run: npm ci
-      - name: Build
+      - name: Build with Astro
         run: npm run build
+        env:
+          PUBLIC_INDEXABLE: "false" # flip to "true" when you want search engines to index
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

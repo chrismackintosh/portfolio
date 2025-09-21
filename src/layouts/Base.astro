@@ -13,6 +13,14 @@ import interVarUrl from "../assets/fonts/Inter-VariableFont_opsz,wght.ttf?url";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    {
+      import.meta.env.PUBLIC_INDEXABLE === "false" && (
+        <>
+          <meta name="robots" content="noindex, nofollow" />
+          <meta name="googlebot" content="noindex, nofollow" />
+        </>
+      )
+    }
     <link rel="icon" href={withBase("/favicon.ico")} />
     <link rel="preload" as="font" href={interVarUrl} type="font/ttf" crossorigin />
   </head>
