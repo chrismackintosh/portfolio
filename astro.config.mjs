@@ -8,7 +8,7 @@ export default defineConfig({
   // Your GitHub *profile* URL, no trailing slash
   site: "https://chrismackintosh.github.io",
   // Your *repo* name, with a leading slash
-  base: "/chrismackintosh-portfolio",
+  base: "/portfolio",
   vite: { plugins: [tailwindcss()] },
   integrations: [mdx(), sitemap()],
 });
